@@ -13,8 +13,8 @@ export default function Router() {
 
     return (
         <BrowserRouter>
-            <Route element={<Layout />}>
-                <Routes>
+            <Routes>
+                <Route element={<Layout />}>
                     <Route index element={<Home />} />
 
                     <Route path="create-todo" element={<CreateTodo />} />
@@ -25,8 +25,8 @@ export default function Router() {
                     <Route path="rgpd" element={<Rgpd />} />
 
                     <Route path="*" element={<NotFound />} />
-                </Routes>
-            </Route>
+                </Route>
+            </Routes>
         </BrowserRouter>
     )
 }
