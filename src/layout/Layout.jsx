@@ -1,14 +1,17 @@
 import { Outlet } from "react-router";
 import Footer from "./Footer";
 import Header from "./Header";
+import "../css/layout.css"
 
 
 export default function Layout() {
 
     return (
-        <div>
+        <div className="layout">
             <Header />
-            <Outlet />
+            <div className="section">
+                <Outlet />
+            </div>
             <Footer />
         </div>
     )

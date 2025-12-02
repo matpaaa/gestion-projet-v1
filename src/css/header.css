@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 64px;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.logo {
+    height: 64px;
+    width: 140px;
+}
+
+.button {
+    background-color: #E0B62C;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
