@@ -17,14 +17,20 @@ export default function Home() {
     return (
         <section className="section-home">
             <h1>Bienvenue sur Check'it</h1>
-
-            <div className="todo-container">
-                {
-                    todos.map((todo, i) => (
-                        <Todo key={i} todo={todo} />
-                    ))
-                }
-            </div>
+            
+            {
+                todos.length === 0 ? (
+                    <p>Rajoute une tâche enculer</p>
+                ) : (
+                    <div className="todos-container">
+                        {
+                            todos.map((todo, i) => (
+                                <Todo key={i} todo={todo} />
+                            ))
+                        }
+                    </div>
+                )
+            }
         </section>
     )
 }
