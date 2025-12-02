@@ -16,8 +16,13 @@ export default class CategorieService {
      * @returns {Todo[]}
      */
     getCategories() {
-        const data = this.localStorageService.getData(this.key)
-        return data.map(d => new Categorie(d.title))
+        try {
+            const data = this.localStorageService.getData(this.key)
+            return data.map(d => new Categorie(d.title))
+        } catch (err) {
+            console.error(err)
+            return []
+        }
     }
 
     updateCategories(data) {
