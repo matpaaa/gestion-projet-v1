@@ -10,15 +10,11 @@ export default class CategorieService {
     ) {
         this.localStorageService = localStorageService
     }
-
-    /**
-     * 
-     * @returns {Todo[]}
-     */
+    
     getCategories() {
         try {
             const data = this.localStorageService.getData(this.key)
-            return data.map(d => new Categorie(d.title))
+            return data.map(d => Object.assign(new Categorie(), d))
         } catch (err) {
             console.error(err)
             return []

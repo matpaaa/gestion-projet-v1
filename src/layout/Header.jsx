@@ -7,7 +7,7 @@ export default function Header() {
     const navigation = useNavigate()
     return (
         <header>
-            <img src="/assets/Logo.svg" alt="Logo" className="logo" />
+            <img onClick={() => navigation('/')} src="/assets/Logo.svg" alt="Logo" className="logo" />
             <button className="button" onClick={() => navigation('create-todo')}>Create</button>
         </header>
     )

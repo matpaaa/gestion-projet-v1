@@ -1,0 +1,99 @@
+.categories-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.categorie-section {
+    padding: 10px 20px;
+    background-color: #DFDFDF;
+    border-radius: 16px;
+}
+
+.categorie-selected {
+    background-color: #F4E3AA;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.text {
+    font-weight: 700;
+    font-size: 16px ;
+    color: black;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-description {
+    border: none;
+    background-color: #DFDFDF;
+    height: 100px;
+    vertical-align: top;     
+    overflow-wrap: break-word;
+    width: 50%;
+    border-radius: 16px;
+}
+
+.input-title {
+    border: none;
+    background-color: #DFDFDF;
+    width: 50%;
+    height: 32px;
+    border-radius: 4px;
+}
+
+p {
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 300;
+}
+
+.create-button {
+    border-radius: 4px;
+    border: none;
+    padding: 10px 10px;
+    background-color: #E0B62C;
+    font-size: 16px;
+    font-weight: 500;
+    width: 110px;
+
+}
+
+.create-button:hover {
+    background-color: #F4E3AA;
+    cursor:pointer
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 40px
+}
+
+.separator {
+    height: 1px;
+    background-color: #DFDFDF;
+}
