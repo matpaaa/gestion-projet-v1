@@ -37,26 +37,33 @@ export default function CreateTodo() {
 
     return (
         <section>
-            <div className='input'>
-                <p className="input-title">Task Title</p>
-                <input value={title} onChange={(e) => setTitle(e.target.value)} className="input-title"/>
-            </div>
+            <div className="page">
 
-            <div className="separator"></div>
+                <h1>Create a new Task</h1>
 
-            <div className='input'>
-                <p className="input-title">Description</p>
-                <input value={description} onChange={(e) => setDescription(e.target.value)} className="input-description"/>
-            </div>
+                <div className='input'>
+                    <p>Task Title</p>
+                    <input value={title} onChange={(e) => setTitle(e.target.value)} className="input-title"/>
+                </div>
 
-            <div className="input-section">
-                <p className="input-title">Categories</p>
-                <Categories
-                    onSelected={selectCategorie}
-                    categorieSelected={categorieSelected}
-                />
+                <div className="separator"></div>
+
+                <div className='input'>
+                    <h2>Description</h2>
+                    <input value={description} onChange={(e) => setDescription(e.target.value)} className="input-description"/>
+                </div>
+
+                <div className="input-section">
+                    <h2>Categories</h2>
+                    <Categories
+                        onSelected={selectCategorie}
+                        categorieSelected={categorieSelected}
+                        />
+                </div>
+
+                <button onClick={createTodo} className="create-button">Create Task</button>
+
             </div>
-            <button onClick={createTodo} className="create-button">Create Task</button>
         </section>
     )
 }
