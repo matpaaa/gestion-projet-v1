@@ -14,16 +14,16 @@ export default class TodoService {
     getTodos() {
         try {
             const data = this.localStorageService.getData(this.key)
-            return data.map(d => new Todo(d.title, d.content, d.time, d.status, d.categories))
+            return data.map(d => new Todo(d.title, d.content, d.time, d.status, d.categories, d.id))
         } catch (err) {
             console.error(err)
             return []
         }
     }
 
-    getTodo(title) {
+    getTodo(id) {
         const todos = this.getTodos()
-        const todoSelected = todos.find(t => t.title === title)
+        const todoSelected = todos.find(t => parseInt(t.id) === parseInt(id))
         if (todoSelected) return todoSelected
         return null
     }

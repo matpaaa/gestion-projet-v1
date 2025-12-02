@@ -1,0 +1,19 @@
+
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    background-color: #F4E3AA;
+    border-radius: 16px;
+    padding: 16px;
+    width: 300px;
+}
+
+.todo-title {
+    font-size: 32px;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+}
