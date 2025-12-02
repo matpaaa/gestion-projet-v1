@@ -37,37 +37,42 @@ export default function CreateTodo() {
 
     return (
         <section>
-            <h1>Create a new Task</h1>
+            <div className="page">
 
-            <div className='input'>
-                <p>Task Title</p>
-                <input value={title} onChange={(e) => setTitle(e.target.value)}/>
-            </div>
+                <h1>Create a new Task</h1>
 
-            <div></div>
-
-            <div>
-                <h2>Description</h2>
                 <div className='input'>
-                    <p >Description Details</p>
-                    <input value={description} onChange={(e) => setDescription(e.target.value)}/>
+                    <p>Task Title</p>
+                    <input value={title} onChange={(e) => setTitle(e.target.value)} className="input-title"/>
                 </div>
-            </div>
 
-            <div>
-                <h2>Categories</h2>
-                <div className="categories">
-                    {
-                        categories.map((categorie,i) => (
-                            <CategorieElement key={i} categorie={categorie}/>
-                        ))
-                    }
+                <div className="separator"></div>
+
+                <div>
+                    <h2>Description</h2>
+                    <div className='input-section'>
+                        <div className="input">   
+                            <p >Description Details</p>
+                            <input value={description} onChange={(e) => setDescription(e.target.value)} className="input-description"/>
+                        </div>
+                    </div>
                 </div>
+
+                <div className="input-section">
+                    <h2>Categories</h2>
+                    <div className="categories">
+                        {
+                            categories.map((categorie,i) => (
+                                <CategorieElement key={i} categorie={categorie}/>
+                            ))
+                        }
+                    </div>
+                </div>
+                
+                <button onClick={createTodo} className="create-button">Create Task</button>
+
+
             </div>
-
-            <button onClick={createTodo}>Create Task</button>
-
-
         </section>
     )
 }
