@@ -13,7 +13,7 @@ export default class TodoService {
 
     getTodos() {
         const data = this.localStorageService.getData(this.key)
-        return data.map(d => Object.assign(Todo, d))
+        return data.map(d => new Todo(d.title, d.content, d.time, d.status, d.categories))
     }
 
     getTodo(title) {

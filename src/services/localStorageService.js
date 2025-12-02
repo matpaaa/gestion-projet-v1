@@ -11,7 +11,7 @@ export default class LocalStorageService {
     }
 
     setData(key, value) {
-        localStorage.setItem(key, value)
+        localStorage.setItem(key, JSON.stringify(value))
     }
 
     deleteData(key) {

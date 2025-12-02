@@ -17,7 +17,7 @@ export default class CategorieService {
      */
     getCategories() {
         const data = this.localStorageService.getData(this.key)
-        return data.map(d => Object.assign(Categorie, data))
+        return data.map(d => new Categorie(d.title))
     }
 
     updateCategories(data) {
