@@ -22,7 +22,7 @@ export default function Home() {
                 todos.length === 0 ? (
                     <p>Rajoute une tâche enculer</p>
                 ) : (
-                    <div className="todo-container">
+                    <div className="todos-container">
                         {
                             todos.map((todo, i) => (
                                 <Todo key={i} todo={todo} />
