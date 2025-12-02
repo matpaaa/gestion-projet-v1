@@ -14,5 +14,6 @@ export default class Todo {
         this.time = time
         this.status = status
         this.categories = categories
+        this.id = Date.now()
     }
 }
