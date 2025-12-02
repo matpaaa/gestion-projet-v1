@@ -2,26 +2,39 @@ import { useEffect, useState } from "react"
 import LocalStorageService from '../services/localStorageService'
 import CategorieService from "../services/categorieService"
 import CategorieElement from "../components/CategorieElement"
+import TodoService from "../services/todoService"
+import { useNavigate } from "react-router-dom"
 
+
+const localStorageService = new LocalStorageService()
+const categorieService = new CategorieService(localStorageService)
+const todoService = new TodoService(localStorageService)
 
 export default function CreateTodo() {
 
-    const [title, setTitle] = useState('')
-   
-    
-    const [description, setDescription] = useState('')
+    const navigate = useNavigate()
 
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
     const [categories, setCategories] = useState([])
     
     useEffect(() => {
-        
-        const localStorage = new LocalStorageService()
-        const categorieService = new CategorieService(localStorage)
         setCategories(categorieService.getCategories())
-
     }, [])
 
-    console.log(categories) 
+    const createTodo = () => {
+        if (title && description) {
+            todoService.addTodo(
+                title,
+                description,
+                0,
+                '',
+                categories
+            )
+            navigate('/')
+        }
+    }
+
     return (
         <section>
             <h1>Create a new Task</h1>
@@ -52,7 +65,7 @@ export default function CreateTodo() {
                 </div>
             </div>
 
-            <button>Create Task</button>
+            <button onClick={createTodo}>Create Task</button>
 
 
         </section>

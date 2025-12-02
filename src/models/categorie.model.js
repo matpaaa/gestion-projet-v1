@@ -7,4 +7,6 @@ export default class Categorie {
     ) {
         this.title = title
     }
+
+    title = ''
 }
