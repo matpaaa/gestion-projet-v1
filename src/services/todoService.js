@@ -21,9 +21,9 @@ export default class TodoService {
         }
     }
 
-    getTodo(title) {
+    getTodo(id) {
         const todos = this.getTodos()
-        const todoSelected = todos.find(t => t.title === title)
+        const todoSelected = todos.find(t => t.id === id)
         if (todoSelected) return todoSelected
         return null
     }

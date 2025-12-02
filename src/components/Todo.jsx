@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import CategorieElement from "../components/CategorieElement"
 
 
 export default function Todo({ todo }) {
