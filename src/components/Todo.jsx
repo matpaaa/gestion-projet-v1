@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import CategorieElement from "../components/CategorieElement"
-
+import '../css/todo.css'
 
 export default function Todo({ todo }) {
 
@@ -11,11 +11,13 @@ export default function Todo({ todo }) {
         <div onClick={navigateTodo} role="button" className="todo-container">
             <p className="todo-title">{ todo.title }</p>
 
-            {
-                todo.categories.map((cat, i) => (
-                    <CategorieElement key={i} categorie={cat} />
-                ))
-            }
+            <div className="categories-container">
+                {
+                    todo.categories.map((cat, i) => (
+                        <CategorieElement key={i} categorie={cat} />
+                    ))
+                }
+            </div>
 
             <p className="todo-content">{ todo.content }</p>
         </div>

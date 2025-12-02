@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import LocalStorageService from '../services/localStorageService'
 import TodoService from "../services/todoService"
 import Todo from "../components/Todo"
+import '../css/home.css'
 
 export default function Home() {
 

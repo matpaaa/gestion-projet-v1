@@ -4,8 +4,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 100px;
+    width: 100%;
+}
+
+.section-home > h1 {
+    text-align: center;
     width: 100%;
 }
 

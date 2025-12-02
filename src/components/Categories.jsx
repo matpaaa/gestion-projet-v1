@@ -1,14 +1,12 @@
-import { useEffect, useState  } from "react-router-dom"
-import CategorieService from "../services/categorie.service";
-import LocalStorageService from "../services/localStorage.service"; 
+import CategorieService from "../services/categorieService";
+import LocalStorageService from "../services/localStorageService"; 
+import CategorieElement from '../components/CategorieElement'
+import { useState, useEffect } from "react";
 
-export default function Categories() {
+
+export default function Categories({ onSelected, categorieSelected }) {
   const [categories, setCategories] = useState([]);
-
-  // Instancie le service
   const categorieService = new CategorieService(new LocalStorageService());
-
-  // Récupère les catégories au chargement
   useEffect(() => {
     const data = categorieService.getCategories();
     setCategories(data);
@@ -16,15 +14,19 @@ export default function Categories() {
 
   return (
     <div>
-      <h2>Liste des catégories</h2>
       {categories.length === 0 ? (
         <p>Aucune catégorie disponible.</p>
       ) : (
-        <ul>
+        <div className="categories-container">
           {categories.map((categorie, index) => (
-            <li key={index}>{categorie.title}</li>
+            <CategorieElement
+              key={index}
+              categorie={categorie}
+              onSelected={onSelected}
+              isSelected={categorieSelected?.title === categorie.title}
+            />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import LocalStorageService from '../services/localStorageService'
-import CategorieService from "../services/categorieService"
-import CategorieElement from "../components/CategorieElement"
 import TodoService from "../services/todoService"
 import { useNavigate } from "react-router-dom"
+import Categories from "../components/Categories"
 
 
 const localStorageService = new LocalStorageService()
-const categorieService = new CategorieService(localStorageService)
 const todoService = new TodoService(localStorageService)
 
 export default function CreateTodo() {
@@ -16,11 +14,7 @@ export default function CreateTodo() {
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [categories, setCategories] = useState([])
-    
-    useEffect(() => {
-        setCategories(categorieService.getCategories())
-    }, [])
+    const [categorieSelected, setCategorieSelected] = useState(null)
 
     const createTodo = () => {
         if (title && description) {
@@ -29,9 +23,15 @@ export default function CreateTodo() {
                 description,
                 0,
                 '',
-                categories
+                categorieSelected ? [categorieSelected] : []
             )
             navigate('/')
+        }
+    }
+
+    const selectCategorie = (categorie) => {
+        if (categorie) {
+            setCategorieSelected(categorie)
         }
     }
 
@@ -40,32 +40,26 @@ export default function CreateTodo() {
             <h1>Create a new Task</h1>
 
             <div className='input'>
-                <p>Task Title</p>
+                <p className="input-title">Task Title</p>
                 <input value={title} onChange={(e) => setTitle(e.target.value)}/>
             </div>
 
             <div></div>
 
-            <div>
-                <h2>Description</h2>
-                <div className='input'>
-                    <p >Description Details</p>
-                    <input value={description} onChange={(e) => setDescription(e.target.value)}/>
-                </div>
+            <div className='input'>
+                <p className="input-title">Description</p>
+                <input value={description} onChange={(e) => setDescription(e.target.value)}/>
             </div>
 
             <div>
-                <h2>Categories</h2>
-                <div className="categories">
-                    {
-                        categories.map((categorie,i) => (
-                            <CategorieElement key={i} categorie={categorie}/>
-                        ))
-                    }
-                </div>
+                <p className="input-title">Categories</p>
+                <Categories
+                    onSelected={selectCategorie}
+                    categorieSelected={categorieSelected}
+                />
             </div>
 
-            <button onClick={createTodo}>Create Task</button>
+            <button onClick={createTodo} className="btn-create">Create Task</button>
 
 
         </section>
