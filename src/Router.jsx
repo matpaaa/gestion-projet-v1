@@ -20,7 +20,7 @@ export default function Router() {
                     <Route path="create-todo" element={<CreateTodo />} />
                     <Route path="view-todo" element={<ViewTodo />} />
 
-                    <Route path="privacy" element={<Privacy />} />
+                    <Route path="privacy-policy" element={<Privacy />} />
                     <Route path="terms" element={<Terms />} />
                     <Route path="rgpd" element={<Rgpd />} />
 
