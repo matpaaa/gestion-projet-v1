@@ -37,31 +37,26 @@ export default function CreateTodo() {
 
     return (
         <section>
-            <h1>Create a new Task</h1>
-
             <div className='input'>
                 <p className="input-title">Task Title</p>
-                <input value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <input value={title} onChange={(e) => setTitle(e.target.value)} className="input-title"/>
             </div>
 
-            <div></div>
+            <div className="separator"></div>
 
             <div className='input'>
                 <p className="input-title">Description</p>
-                <input value={description} onChange={(e) => setDescription(e.target.value)}/>
+                <input value={description} onChange={(e) => setDescription(e.target.value)} className="input-description"/>
             </div>
 
-            <div>
+            <div className="input-section">
                 <p className="input-title">Categories</p>
                 <Categories
                     onSelected={selectCategorie}
                     categorieSelected={categorieSelected}
                 />
             </div>
-
-            <button onClick={createTodo} className="btn-create">Create Task</button>
-
-
+            <button onClick={createTodo} className="create-button">Create Task</button>
         </section>
     )
 }
